@@ -7,7 +7,7 @@ import { fetchMessages } from '../actions';
 
 class MessageList extends Component {
   componentWillMount = () => {
-    this.props.fetchMessages();
+    this.props.fetchMessages(this.props.selectedChannel);
   }
 
   render() {
@@ -23,7 +23,10 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (reduxState) => {
-  return { messages: reduxState.messages };
+  return {
+    messages: reduxState.messages,
+    selectedChannel: reduxState.selectedChannel
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
