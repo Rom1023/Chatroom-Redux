@@ -17,7 +17,7 @@ class ChannelList extends Component {
           {this.props.channels.map((channel) => {
             return (
               <li key={channel}>
-                <button value={channel} className="channel-list-button" onClick={this.handleClick}>{channel}</button>
+                <button className={this.props.selectedChannel === channel ? 'channel-list-button channel-active' : 'channel-list-button'} value={channel} onClick={this.handleClick}>{channel}</button>
               </li>);
           })}
         </ul>

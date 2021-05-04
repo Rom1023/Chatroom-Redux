@@ -14,17 +14,17 @@ class MessageList extends Component {
     this.props.fetchMessages(this.props.selectedChannel);
   }
 
-  componentDidUpdate = () => {
-    this.refresher = setInterval(this.fetchMessages, 5000);
-  };
+  // componentDidUpdate = () => {
+  //   this.refresher = setInterval(this.fetchMessages, 5000);
+  // };
 
-  componentWillUnmount = () => {
-    this.clear(this.refresher);
-  };
+  // componentWillUnmount = () => {
+  //   this.clear(this.refresher);
+  // };
 
-  fetchMessages = () => {
-    return this.props.fetchMessages(this.props.selectedChannel);
-  };
+  // fetchMessages = () => {
+  //   return this.props.fetchMessages(this.props.selectedChannel);
+  // };
 
   render() {
     return (
