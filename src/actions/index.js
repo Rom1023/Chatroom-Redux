@@ -2,7 +2,8 @@
 const BASE_URL = "https://wagon-chat.herokuapp.com/";
 
 export const FETCH_MESSAGES = 'FETCH_MESSAGES';
-export const SELECTED_CHANNEL = 'SELECTED_CHANNEL';
+export const SELECT_CHANNEL = 'SELECT_CHANNEL';
+export const CREATE_MESSAGE = 'CREATE_MESSAGE';
 
 export const fetchMessages = (channel) => {
   const promise = fetch(`${BASE_URL}${channel}/messages`)
@@ -13,9 +14,22 @@ export const fetchMessages = (channel) => {
   };
 };
 
-export const selectedChannel = (channel) => {
+export const createMessage = (channel, author, content) => {
+  const body = { author, content };
+  const promise = fetch(`${BASE_URL}${channel}/messages`, {
+    method: "POST",
+    body: JSON.stringify(body)
+  })
+    .then(response => response.json());
   return {
-    type: SELECTED_CHANNEL,
+    type: CREATE_MESSAGE,
+    payload: promise
+  };
+};
+
+export const selectChannel = (channel) => {
+  return {
+    type: SELECT_CHANNEL,
     payload: channel
   };
 };

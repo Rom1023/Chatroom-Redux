@@ -1,8 +1,8 @@
-import SELECTED_CHANNEL from '../actions';
+import SELECT_CHANNEL from '../actions';
 
 const selectedChannelReducer = (state = 'general', action) => {
   switch (action.type) {
-    case SELECTED_CHANNEL:
+    case SELECT_CHANNEL:
       return action.payload;
     default:
       return state;

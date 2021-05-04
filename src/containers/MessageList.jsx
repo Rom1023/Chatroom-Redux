@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-// Components
+// Components and Containers
 import Message from '../components/Message';
+import MessageForm from './MessageForm';
 
 // Actions
 import { fetchMessages } from '../actions';
@@ -20,6 +21,7 @@ class MessageList extends Component {
         {this.props.messages.map((message) => {
           return <Message key={message.id} message={message} />;
         })}
+        <MessageForm />
       </div>
     );
   }

@@ -3,11 +3,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 // Actions
-import { selectedChannel } from '../actions';
+import { selectChannel } from '../actions';
 
 class ChannelList extends Component {
-  handleClick = () => {
-    this.props.selectedChannel(this.props.selectedChannel);
+  handleClick = (event) => {
+    this.props.selectChannel(event.target.value);
   };
 
   render() {
@@ -17,7 +17,7 @@ class ChannelList extends Component {
           {this.props.channels.map((channel) => {
             return (
               <li key={channel}>
-                <button className="channel-list-button" onClick={this.handleClick}>{channel}</button>
+                <button value={channel} className="channel-list-button" onClick={this.handleClick}>{channel}</button>
               </li>);
           })}
         </ul>
@@ -28,7 +28,7 @@ class ChannelList extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
-    { selectedChannel: selectedChannel }, dispatch
+    { selectChannel: selectChannel }, dispatch
   );
 };
 
