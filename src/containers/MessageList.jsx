@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+// Components
+import Message from '../components/Message';
+
 // Actions
 import { fetchMessages } from '../actions';
 
@@ -12,7 +15,12 @@ class MessageList extends Component {
 
   render() {
     return (
-      <h2>Chatroom</h2>
+      <div>
+        <h2>Chatroom</h2>
+        {this.props.messages.map((message) => {
+          return <Message key={message.id} message={message} />;
+        })}
+      </div>
     );
   }
 }
