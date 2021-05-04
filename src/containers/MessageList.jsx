@@ -15,7 +15,7 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="chatroom">
         <h2>Chatroom</h2>
         {this.props.messages.map((message) => {
           return <Message key={message.id} message={message} />;

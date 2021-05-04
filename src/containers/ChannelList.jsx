@@ -12,12 +12,12 @@ class ChannelList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="channel-list">
         <ul>
           {this.props.channels.map((channel) => {
             return (
               <li key={channel}>
-                <button onClick={this.handleClick}>{channel}</button>
+                <button className="channel-list-button" onClick={this.handleClick}>{channel}</button>
               </li>);
           })}
         </ul>
