@@ -17,7 +17,6 @@ import selectedChannelReducer from './reducers/selectedChannelReducer';
 // import currentUserReducer from './reducers/currentUserReducer';
 
 const initialState = {
-  messages: [],
   channels: ['general', 'react', 'montreal'],
   currentUser: prompt('Please enter your username') || `Anonymous${Math.floor(10 + (Math.random() * 90))}`
 };
