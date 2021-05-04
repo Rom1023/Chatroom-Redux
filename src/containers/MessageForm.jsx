@@ -23,8 +23,8 @@ class MessageForm extends Component {
 
   render() {
     return (
-      <form action="post" onSubmit={this.handleSubmit}>
-        <input type="text" value={this.state.value} onChange={this.handleChange} />
+      <form className="form-group" action="post" onSubmit={this.handleSubmit}>
+        <input className="form-control mb-3" type="text" value={this.state.value} onChange={this.handleChange} placeholder="Write your message" />
         <button type="submit" className="btn btn-primary">Send</button>
       </form>
     );
