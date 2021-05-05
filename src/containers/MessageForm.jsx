@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+// FontAwesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+
 // Actions
 import { createMessage } from '../actions';
 
@@ -24,8 +28,8 @@ class MessageForm extends Component {
   render() {
     return (
       <form className="form-group" action="post" onSubmit={this.handleSubmit}>
-        <input className="form-control mb-3" type="text" value={this.state.value} onChange={this.handleChange} placeholder="Write your message" />
-        <button type="submit" className="btn btn-primary">Send</button>
+        <input className="form-control" type="text" value={this.state.value} onChange={this.handleChange} placeholder="Write your message" />
+        <button type="submit" className="chat-button"><FontAwesomeIcon icon={faPaperPlane} /></button>
       </form>
     );
   }

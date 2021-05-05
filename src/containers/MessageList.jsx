@@ -28,12 +28,16 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div className="chatroom">
-        <h2>Chatroom</h2>
-        {this.props.messages.map((message) => {
-          return <Message key={message.id} message={message} />;
-        })}
-        <MessageForm />
+      <div className="chat-container">
+        <div className="chat-content">
+          <div className="chat-messages">
+            <h2>Chat</h2>
+            {this.props.messages.map((message) => {
+              return <Message key={message.id} message={message} />;
+            })}
+          </div>
+          <MessageForm className="chat-form" />
+        </div>
       </div>
     );
   }

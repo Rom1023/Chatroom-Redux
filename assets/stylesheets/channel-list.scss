@@ -1,5 +1,16 @@
 .channel-list-container{
-  flex: 0 0 30%;
+  flex: 0 0 20%;
+  margin-right: 20px;
+  background-color: #4545a5;
+  height: 80vh;
+  border-radius: 10px;
+    h2{
+      padding-left: 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+  }
 }
 
 .channel-list{
@@ -10,8 +21,9 @@
   background-color: transparent;
   border: none;
   font-family: 'Poppins', sans-serif;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 700;
+  color: white;
 }
 
 .channel-active{
