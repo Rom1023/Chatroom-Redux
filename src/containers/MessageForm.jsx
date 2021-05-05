@@ -27,9 +27,11 @@ class MessageForm extends Component {
 
   render() {
     return (
-      <form className="form-group" action="post" onSubmit={this.handleSubmit}>
-        <input className="form-control" type="text" value={this.state.value} onChange={this.handleChange} placeholder="Write your message" />
-        <button type="submit" className="chat-button"><FontAwesomeIcon icon={faPaperPlane} /></button>
+      <form action="post" onSubmit={this.handleSubmit}>
+        <div className="chat-form">
+          <input type="textarea" value={this.state.value} onChange={this.handleChange} placeholder="Write your message" />
+          <button type="submit" className="chat-form-button"><FontAwesomeIcon icon={faPaperPlane} /></button>
+        </div>
       </form>
     );
   }

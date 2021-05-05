@@ -30,13 +30,13 @@ class MessageList extends Component {
     return (
       <div className="chat-container">
         <div className="chat-content">
-          <div className="chat-messages">
+          <div className="chat-message-list">
             <h2>Chat</h2>
             {this.props.messages.map((message) => {
               return <Message key={message.id} message={message} />;
             })}
           </div>
-          <MessageForm className="chat-form" />
+          <MessageForm />
         </div>
       </div>
     );

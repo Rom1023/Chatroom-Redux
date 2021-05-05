@@ -16,20 +16,33 @@
 .chat-content{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  height: 95vh;
 }
 
-.chat-messages{
+.chat-message-list{
   flex-grow: 1;
 }
 
-.chat-button{
+.chat-form-button{
   background-color: #4545a5;
   color: white;
   border: none;
   border-radius: 50%;
-  margin-top: 10px;
   width: 40px;
   height: 40px;
 }
 
+.chat-form{
+  display: flex;
+  align-items: center;
+  border-top: solid 1px #DCDDED;
+  padding-top: 15px;
+  input{
+    flex-grow: 1;
+    margin-right: 15px;
+    border: none;
+  }
+  input:focus{
+    outline: none;
+  }
+}
