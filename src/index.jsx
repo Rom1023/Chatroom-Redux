@@ -14,8 +14,6 @@ import '../assets/stylesheets/application.scss';
 
 // Reducers
 import messagesReducer from './reducers/messagesReducer';
-// import channelsReducer from './reducers/channelsReducer';
-// import currentUserReducer from './reducers/currentUserReducer';
 
 const initialState = {
   channels: ['general', 'react', 'montreal'],
