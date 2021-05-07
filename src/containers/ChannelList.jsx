@@ -6,14 +6,24 @@ import { connect } from 'react-redux';
 import { selectChannel } from '../actions';
 
 class ChannelList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { display: true };
+  }
+
   handleClick = (event) => {
     this.props.selectChannel(event.target.value);
+  };
+
+  handleButtonClick = () => {
+
   };
 
   render() {
     return (
       <div className="channel-list-container">
-      <h2>Channels</h2>
+        <button onClick={this.handleButtonClick}>X</button>
+        <h2>Channels</h2>
         <ul className="channel-list">
           {this.props.channels.map((channel) => {
             return (
@@ -41,3 +51,4 @@ const mapStateToProps = (reduxState) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelList);
+
