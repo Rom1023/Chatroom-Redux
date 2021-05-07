@@ -11,7 +11,7 @@ import { fetchMessages } from '../actions';
 
 class MessageList extends Component {
   componentWillMount = () => {
-    this.props.fetchMessages(this.props.selectedChannel);
+    this.props.fetchMessages(this.props.channelFromParam);
   }
 
   componentDidUpdate = () => {
@@ -23,7 +23,7 @@ class MessageList extends Component {
   };
 
   fetchMessages = () => {
-    return this.props.fetchMessages(this.props.selectedChannel);
+    return this.props.fetchMessages(this.props.channelFromParam);
   };
 
   render() {
@@ -36,7 +36,7 @@ class MessageList extends Component {
               return <Message key={message.id} message={message} />;
             })}
           </div>
-          <MessageForm />
+          <MessageForm channelFromParam={this.props.channelFromParam} />
         </div>
       </div>
     );
@@ -51,7 +51,6 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (reduxState) => {
   return {
     messages: reduxState.messages,
-    selectedChannel: reduxState.selectedChannel
   };
 };
 

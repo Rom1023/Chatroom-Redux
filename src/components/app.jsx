@@ -3,11 +3,11 @@ import React from 'react';
 import MessageList from '../containers/MessageList';
 import ChannelList from '../containers/ChannelList';
 
-const App = () => {
+const App = (props) => {
   return (
     <div className="app">
-      <ChannelList />
-      <MessageList />
+      <ChannelList channelFromParam={props.match.params.channel} />
+      <MessageList channelFromParam={props.match.params.channel} />
     </div>
   );
 };

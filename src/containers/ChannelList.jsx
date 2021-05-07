@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 // Actions
 import { selectChannel } from '../actions';
@@ -10,10 +11,6 @@ class ChannelList extends Component {
     super(props);
     this.state = { display: true };
   }
-
-  handleClick = (event) => {
-    this.props.selectChannel(event.target.value);
-  };
 
   handleButtonClick = () => {
 
@@ -28,7 +25,9 @@ class ChannelList extends Component {
           {this.props.channels.map((channel) => {
             return (
               <li key={channel}>
-                <button className={this.props.selectedChannel === channel ? 'channel-list-button channel-active' : 'channel-list-button'} value={channel} onClick={this.handleClick}>{channel}</button>
+                <Link to={`/${channel}`} className={this.props.channelFromParam === channel ? 'channel-list-button channel-active' : 'channel-list-button'}>
+                  {channel}
+                </Link>
               </li>);
           })}
         </ul>
@@ -46,7 +45,6 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (reduxState) => {
   return {
     channels: reduxState.channels,
-    selectedChannel: reduxState.selectedChannel
   };
 };
 
