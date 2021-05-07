@@ -4,13 +4,19 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // Actions
-import { selectChannel } from '../actions';
+import { fetchMessages } from '../actions';
 
 class ChannelList extends Component {
   constructor(props) {
     super(props);
     this.state = { display: true };
   }
+
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.channelFromParam !== this.props.channelFromParam) {
+      this.props.fetchMessages(this.props.channelFromParam);
+    }
+  };
 
   handleButtonClick = () => {
 
@@ -38,7 +44,7 @@ class ChannelList extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
-    { selectChannel: selectChannel }, dispatch
+    { fetchMessages: fetchMessages }, dispatch
   );
 };
 
