@@ -9,35 +9,39 @@ import { fetchMessages } from '../actions';
 class ChannelList extends Component {
   constructor(props) {
     super(props);
-    this.state = { display: true };
+    this.state = { isOpened: true };
   }
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.channelFromParam !== this.props.channelFromParam) {
-      this.props.fetchMessages(this.props.channelFromParam);
+      this.props.fetchMessages(nextProps.channelFromParam);
     }
-  };
-
-  handleButtonClick = () => {
-
   };
 
   render() {
     return (
-      <div className="channel-list-container">
-        <button onClick={this.handleButtonClick}>X</button>
-        <h2>Channels</h2>
-        <ul className="channel-list">
-          {this.props.channels.map((channel) => {
-            return (
-              <li key={channel}>
-                <Link to={`/${channel}`} className={this.props.channelFromParam === channel ? 'channel-list-button channel-active' : 'channel-list-button'}>
-                  {channel}
-                </Link>
-              </li>);
-          })}
-        </ul>
-      </div>
+      this.state.isOpened ? (
+        <div className="channel-list-container">
+          <button onClick={() => this.setState({ isOpened: !this.state.isOpened })}>X</button>
+          <h2>Channels</h2>
+          <ul className="channel-list">
+            {this.props.channels.map((channel) => {
+              return (
+                <li key={channel}>
+                  <Link to={`/${channel}`} className={this.props.channelFromParam === channel ? 'channel-list-button channel-active' : 'channel-list-button'}>
+                    {channel}
+                  </Link>
+                </li>);
+            })}
+          </ul>
+        </div>
+      ) : (
+        <div>
+          <h2>Hello</h2>
+          <button onClick={() => this.setState({ isOpened: !this.state.isOpened })}>Open</button>
+        </div>
+      )
+
     );
   }
 }
@@ -55,4 +59,3 @@ const mapStateToProps = (reduxState) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelList);
-
