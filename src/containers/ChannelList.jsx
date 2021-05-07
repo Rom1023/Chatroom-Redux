@@ -3,8 +3,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+// FontAwesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+
 // Actions
 import { fetchMessages } from '../actions';
+
 
 class ChannelList extends Component {
   constructor(props) {
@@ -22,13 +27,13 @@ class ChannelList extends Component {
     return (
       this.state.isOpened ? (
         <div className="channel-list-container">
-          <button onClick={() => this.setState({ isOpened: !this.state.isOpened })}>X</button>
+          <FontAwesomeIcon icon={faTimesCircle} onClick={() => this.setState({ isOpened: !this.state.isOpened })} className="channel-list-close-icon" />
           <h2>Channels</h2>
           <ul className="channel-list">
             {this.props.channels.map((channel) => {
               return (
                 <li key={channel}>
-                  <Link to={`/${channel}`} className={this.props.channelFromParam === channel ? 'channel-list-button channel-active' : 'channel-list-button'}>
+                  <Link to={`/${channel}`} className={this.props.channelFromParam === channel ? 'channel-list-link channel-active' : 'channel-list-link'}>
                     {channel}
                   </Link>
                 </li>);
@@ -36,12 +41,10 @@ class ChannelList extends Component {
           </ul>
         </div>
       ) : (
-        <div>
-          <h2>Hello</h2>
-          <button onClick={() => this.setState({ isOpened: !this.state.isOpened })}>Open</button>
+        <div className="channel-list-container-closed">
+          <FontAwesomeIcon icon={faBars} onClick={() => this.setState({ isOpened: !this.state.isOpened })} className="channel-list-bar-icon" />
         </div>
       )
-
     );
   }
 }

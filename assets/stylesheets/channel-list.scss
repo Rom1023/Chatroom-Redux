@@ -1,9 +1,8 @@
 .channel-list-container{
-  flex: 0 0 20%;
+  flex: 0 0 15%;
   margin-right: 20px;
   background-color: #4545a5;
   height: 100vh;
-  border-radius: 10px;
     h2{
       padding-left: 20px;
       font-family: 'Poppins', sans-serif;
@@ -11,19 +10,44 @@
       font-weight: 700;
       color: white;
   }
+  .channel-list-close-icon{
+    font-size: 32px;
+    color: white;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+}
+
+.channel-list-container-closed{
+  margin-right: 20px;
+  background-color: #4545a5;
+  height: 100vh;
+    .channel-list-bar-icon{
+      font-size: 48px;
+      color: white;
+      padding-left: 10px;
+      padding-right: 10px;
+      cursor: pointer;
+    }
 }
 
 .channel-list{
   list-style-type: none;
 }
 
-.channel-list-button{
+.channel-list-link{
   background-color: transparent;
   border: none;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: white;
+    &:hover{
+      color: red;
+    }
+    &:visited{
+      color: white;
+    }
 }
 
 .channel-active{
